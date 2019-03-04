@@ -11,6 +11,7 @@ import com.project.demo.springbootrestfulapi.design.strategy.ComplexRepaymentCap
 import com.project.demo.springbootrestfulapi.design.strategy.Constants;
 import com.project.demo.springbootrestfulapi.design.strategy.HomeLoanInterestCalculator;
 import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException;
+import com.project.demo.springbootrestfulclient.model.HomeLoanInterestBean;
 
 /**
  * @RestController : Combination of @Controller and @ResponseBody. Beans
@@ -22,8 +23,9 @@ public class RestApiController {
 	public static final Logger logger = LoggerFactory.getLogger(RestApiController.class);
 
 	@GetMapping("/homeLoanInterest")
-	public Double calculateInterest() {
+	public HomeLoanInterestBean calculateInterest() {
 		Double loHomeLoanInterest = Constants.DOUBLE_ZERO;
+		HomeLoanInterestBean loHomeLoanInterestBean=null;
 		// We have family of algorithms(calculating values various fields from different
 		// files)
 		// We are aware that we have these options(interfaces) to calculate interest
@@ -34,13 +36,15 @@ public class RestApiController {
 		// income/Repayment capacity
 		try {
 			logger.info("Start home loan interest rate");
+			loHomeLoanInterestBean = new HomeLoanInterestBean();
 			HomeLoanInterestCalculator homeLoanInterestCalculator = new HomeLoanInterestCalculator(
 					new ComplexCreditWorthiness(), new ComplexMarketCondition(), new ComplexRepaymentCapacity());
 			loHomeLoanInterest = homeLoanInterestCalculator.calculateInterest();
+			loHomeLoanInterestBean.setHomeLoanInterest(loHomeLoanInterest);
 			logger.info("Finish home loan interest rate");
 		} catch (HomeLoanInterestException e) {
 			logger.error("Error occured while calculating interest rate.");
 		}
-		return loHomeLoanInterest;
+		return loHomeLoanInterestBean;
 	}
 }

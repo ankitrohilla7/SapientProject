@@ -1,17 +1,26 @@
 package com.project.demo.springbootrestfulclient.model;
 
-public class HomeLoanInterest {
+/**
+ * @author ankrohil1
+ *
+ */
+public class HomeLoanInterestBean {
 	 
+    /**
+     * 
+     */
     private Double homeLoanInterestRate;
   
-    public HomeLoanInterest(Double homeLoanInterest) {
-        this.setHomeLoanInterest(homeLoanInterest);
-    }
-
+	/**
+	 * @return
+	 */
 	public Double getHomeLoanInterest() {
 		return homeLoanInterestRate;
 	}
 
+	/**
+	 * @param homeLoanInterest
+	 */
 	public void setHomeLoanInterest(Double homeLoanInterest) {
 		this.homeLoanInterestRate = homeLoanInterest;
 	}

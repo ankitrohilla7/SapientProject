@@ -10,6 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = {"com.project.demo.springbootrestfulapi.controller"})
 public class SpringBootRestfulClientApplication {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootRestfulClientApplication.class, args);
 	}
