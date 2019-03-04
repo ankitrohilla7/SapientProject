@@ -25,14 +25,18 @@ public class HomeLoanInterestCalculator {
 	}
 
 	public Double calculateInterest() throws HomeLoanInterestException {
+		Integer repoRate;
+		ExecutorService loExecutorService;
+		List<Future<Sheet>> futureTaskList;
 		try {
+			repoRate=Constants.INTEGER_ZERO;
 			// executor frame work to read multiple files
-			ExecutorService loExecutorService = Executors.newFixedThreadPool(3);
-			List<Future<Sheet>> futureTaskList = new ArrayList<>();
+			loExecutorService = Executors.newFixedThreadPool(3);
+			futureTaskList = new ArrayList<>();
 			for (String fileName : Constants.FILE_LIST) {
 				futureTaskList.add(loExecutorService.submit(new MultipleFileReader(fileName)));
 			}
-			return getRepoRate() + this.creditWorthinessStrategy.getCreditWorthy(futureTaskList.get(0).get())
+			return repoRate + this.creditWorthinessStrategy.getCreditWorthy(futureTaskList.get(0).get())
 					+ this.marketConditionStrategy.getMarketCondition(futureTaskList.get(1).get())
 					+ this.repaymentCapacityStrategy.calculateRepaymentCapacity(futureTaskList.get(2).get());
 		
@@ -41,9 +45,5 @@ public class HomeLoanInterestCalculator {
 		}
 	}
 
-	private Integer getRepoRate() {
-		// getting repo rate from any db calls
-		return 6;
-	}
 
 }
