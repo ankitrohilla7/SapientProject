@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.project.demo.springbootrestfulapi.exception.test;
+package com.project.demo.springbootrestfulapi.exception;
 
 import static org.junit.Assert.assertNotNull;
 

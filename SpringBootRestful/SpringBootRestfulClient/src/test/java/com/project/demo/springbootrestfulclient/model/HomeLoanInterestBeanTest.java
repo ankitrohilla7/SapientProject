@@ -1,33 +1,35 @@
 /**
  * 
  */
-package com.project.demo.springbootrestfulapi.design.strategy.test;
+package com.project.demo.springbootrestfulclient.model;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.project.demo.springbootrestfulapi.design.strategy.MultipleFileReader;
 import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException;
+import com.project.demo.springbootrestfulclient.model.HomeLoanInterestBean;
 
 /**
  * @author ankrohil1
  *
  */
-public class MultipleFileReaderTest {
-	MultipleFileReader loMultipleFileReader;
+public class HomeLoanInterestBeanTest {
+	HomeLoanInterestBean loHomeLoanInterestBean;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		loMultipleFileReader = new MultipleFileReader("CreditWorthiness");
+		loHomeLoanInterestBean = new HomeLoanInterestBean();
 	}
 	
 	@Test
 	public void testCalculateInterest() throws HomeLoanInterestException {
-		assertNotNull(loMultipleFileReader.call());
+		loHomeLoanInterestBean.setHomeLoanInterest(0.0);
+		assertNotNull(loHomeLoanInterestBean.getHomeLoanInterest());
 	}
 	
 	

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.project.demo.springbootrestfulapi.controller.test;
+package com.project.demo.springbootrestfulapi.controller;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

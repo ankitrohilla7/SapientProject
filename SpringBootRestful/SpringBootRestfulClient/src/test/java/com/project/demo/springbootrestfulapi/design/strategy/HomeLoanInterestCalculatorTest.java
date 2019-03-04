@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.project.demo.springbootrestfulapi.design.strategy.test;
+package com.project.demo.springbootrestfulapi.design.strategy;
 
 import static org.junit.Assert.assertNotNull;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.project.demo.springbootrestfulapi.design.strategy.test;
+package com.project.demo.springbootrestfulapi.design.strategy;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.project.demo.springbootrestfulapi.design.strategy.SimpleMarketCondition;
+import com.project.demo.springbootrestfulapi.design.strategy.ComplexCreditWorthiness;
 import com.project.demo.springbootrestfulapi.design.strategy.MultipleFileReader;
 import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException;
 
@@ -17,8 +17,8 @@ import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException
  * @author ankrohil1
  *
  */
-public class SimpleMarketConditionTest {
-	SimpleMarketCondition loSimpleMarketCondition;
+public class ComplexCreditWorthinessTest {
+	ComplexCreditWorthiness loComplexCreditWorthiness;
 	MultipleFileReader loMultipleFileReader;
 	Sheet sheet;
 	/**
@@ -26,14 +26,14 @@ public class SimpleMarketConditionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		loSimpleMarketCondition = new SimpleMarketCondition();
-		loMultipleFileReader = new MultipleFileReader("MarketCondition");
+		loComplexCreditWorthiness = new ComplexCreditWorthiness();
+		loMultipleFileReader = new MultipleFileReader("CreditWorthiness");
 		sheet = loMultipleFileReader.call();
 	}
 	
 	@Test
 	public void testCalculateInterest() throws HomeLoanInterestException {
-		assertNotNull(loSimpleMarketCondition.getMarketCondition(sheet));
+		assertNotNull(loComplexCreditWorthiness.getCreditWorthy(sheet));
 	}
 	
 	
