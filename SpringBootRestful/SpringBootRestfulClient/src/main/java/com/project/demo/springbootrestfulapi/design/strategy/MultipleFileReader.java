@@ -15,7 +15,7 @@ import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException
  * @author ankrohil1
  *
  */
-class MultipleFileReader implements Callable<Sheet> {
+public class MultipleFileReader implements Callable<Sheet> {
 	/**
 	 * 
 	 */
