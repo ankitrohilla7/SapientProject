@@ -3,7 +3,7 @@ package com.project.demo.springbootrestfulapi.design.strategy;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**Class to declare constants
  * @author ankrohil1
  *
  */

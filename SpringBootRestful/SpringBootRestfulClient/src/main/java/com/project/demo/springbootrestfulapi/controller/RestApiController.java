@@ -14,22 +14,32 @@ import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException
 import com.project.demo.springbootrestfulclient.model.HomeLoanInterestBean;
 
 /**
+ * Spring boot Rest Api controller class.
+ * 
  * @RestController : Combination of @Controller and @ResponseBody. Beans
  *                 returned are converted to/from JSON/XML
  *
  */
 @RestController
 public class RestApiController {
+	/**
+	 * Variable for logger
+	 */
 	public static final Logger logger = LoggerFactory.getLogger(RestApiController.class);
 
+	/**
+	 * This method is used to calculate interest rate.
+	 * 
+	 * @return HomeLoanInterestBean
+	 */
 	@GetMapping("/homeLoanInterest")
 	public HomeLoanInterestBean calculateInterest() {
 		Double loHomeLoanInterest = Constants.DOUBLE_ZERO;
-		HomeLoanInterestBean loHomeLoanInterestBean=null;
+		HomeLoanInterestBean loHomeLoanInterestBean = null;
 		// We have family of algorithms(calculating values various fields from different
 		// files)
 		// We are aware that we have these options(interfaces) to calculate interest
-		// rate
+		// rate.
 		// Runtime pass the required concrete class to calculate interest rate
 		// Home Loan Interest rate is dependent on three major factor :
 		// Creditworthiness of the applicant,Market Condition, Applicant’s

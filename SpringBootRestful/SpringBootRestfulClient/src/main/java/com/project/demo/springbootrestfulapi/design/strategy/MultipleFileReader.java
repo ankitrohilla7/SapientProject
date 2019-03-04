@@ -12,23 +12,29 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException;
 
 /**
+ * Class to read multiple file parallely
+ * 
  * @author ankrohil1
  *
  */
 public class MultipleFileReader implements Callable<Sheet> {
 	/**
-	 * 
+	 * Variable for file name
 	 */
 	private String fileName;
 
 	/**
+	 * Constructor to initialize variable
+	 * 
 	 * @param fileName
 	 */
 	public MultipleFileReader(String fileName) {
 		this.fileName = fileName;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.util.concurrent.Callable#call()
 	 */
 	@Override
@@ -37,8 +43,10 @@ public class MultipleFileReader implements Callable<Sheet> {
 	}
 
 	/**
+	 * This method will return the excel sheet element read by individual thread
+	 * 
 	 * @param fileName
-	 * @return
+	 * @return sheet
 	 * @throws HomeLoanInterestException
 	 */
 	private Sheet readMultipleFiles(String fileName) throws HomeLoanInterestException {
@@ -56,7 +64,7 @@ public class MultipleFileReader implements Callable<Sheet> {
 		} catch (IOException loException) {
 			throw new HomeLoanInterestException("Exception occured while reading excel files" + loException);
 		}
-		return sheet;		
+		return sheet;
 	}
 
 }

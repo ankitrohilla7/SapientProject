@@ -11,26 +11,26 @@ import org.apache.poi.ss.usermodel.Sheet;
 
 import com.project.demo.springbootrestfulapi.exception.HomeLoanInterestException;
 
-/**
+/**Class to calculate home loan interest rate
  * @author ankrohil1
  *
  */
 public class HomeLoanInterestCalculator {
 
 	/**
-	 * 
+	 * Variable for Credit Worthiness Strategy
 	 */
 	CreditWorthinessStrategy creditWorthinessStrategy;
 	/**
-	 * 
+	 * Variable for Market Condition Strategy
 	 */
 	MarketConditionStrategy marketConditionStrategy;
 	/**
-	 * 
+	 * Variable for Repayment Capacity Strategy
 	 */
 	RepaymentCapacityStrategy repaymentCapacityStrategy;
 
-	/**
+	/**Consrtcutor to inittialize variable
 	 * @param creditWorthinessStrategy
 	 * @param marketConditionStrategy
 	 * @param repaymentCapacityStrategy
@@ -42,8 +42,8 @@ public class HomeLoanInterestCalculator {
 		this.repaymentCapacityStrategy = repaymentCapacityStrategy;
 	}
 
-	/**
-	 * @return
+	/**Method to calculate interest rate
+	 * @return interest rate 
 	 * @throws HomeLoanInterestException
 	 */
 	public Double calculateInterest() throws HomeLoanInterestException {
